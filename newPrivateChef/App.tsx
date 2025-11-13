@@ -358,6 +358,37 @@ function AddItemScreen(){
         <Button title="Add Item" onPress={onAdd} color="#e63946" />
       </View>
 
+      {/*Total number of items in the menu (rubric requirement)*/}
+      <Text style={styles.totalCount}>Total Items: {productCatalogue.length}</Text>
+
+      <Text style={[styles.menuTitle, { marginTop: 10 }]}>Current Menu Items</Text>
+
+      {/*List of items with a Remove button*/}
+      <FlatList
+        data={productCatalogue}
+        keyExtractor={(it) => it.id}
+        renderItem={({ item }) => (
+          <View style={styles.displayItem}>
+            <Text style={styles.displayText}>
+              {item.name} - R{item.price.toFixed(2)}
+            </Text>
+            <Text style={styles.displayText}>
+              {item.category} - {item.description}
+            </Text>
+            <View style={{ marginTop: 10 }}>
+              {/*Remove item from menu button*/}
+              <Button title="Remove" color="#e63946" onPress={() => removeItem(item.id)} />
+            </View>
+          </View>
+        )}
+        style={styles.itemList}
+      />
+      <StatusBar style="auto" />
+    </ScrollView>
+  );
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
