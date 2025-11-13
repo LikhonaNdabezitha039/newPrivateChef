@@ -519,3 +519,30 @@ const styles = StyleSheet.create({
     color: "#444",
     marginTop: 3,
   },
+  totalCount: {
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "600",
+    marginVertical: 20,
+  },
+  displayItem: {
+    backgroundColor: "#87CEEB",
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 10,
+    marginHorizontal: 20,
+  },
+  displayText: {
+    fontSize: 16,
+  },
+  itemList: {
+    marginTop: 10,
+  },
+  courseAverage: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#000",
+    textAlign: "center",
+    marginBottom: 10,
+  },
+});
