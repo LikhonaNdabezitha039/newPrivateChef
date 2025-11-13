@@ -10,7 +10,7 @@ W3schools, 2025. React.funtion component[online]. Available at:<https://www.w3sc
 
 Youtube links
 part 2; https://youtube.com/shorts/6PuntILzprE?si=0cfQBW9gegIttBaN
-part 3; 
+part 3; https://youtu.be/3buuKiesorY?si=fhdA73KuKL11tEhD
 
 Changelog
 
