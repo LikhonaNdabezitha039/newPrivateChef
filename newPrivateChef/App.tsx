@@ -29,6 +29,43 @@ type MenuContextType = {
 //Menu context
 const MenuContext = createContext<MenuContextType | undefined>(undefined);
 
+//Initial menu data (converted to typed objects) Prices are numeric so averages calculate correctly.
+const initialMenu: StoreItem[] = [
+  // Starters
+  {
+    id: "s1",
+    name: "Cheesy Chicken Quesadilla",
+    price: 95.99,
+    category: "Starters",
+    description:
+      "Your choice of Blueberry Watermelon, Dragon Fruit Raspberry, Very Cherry Berry, Blue Lemonade or Strawberry & Passion Fruit.",
+    image: require("./Images/cheesy_q.png"),
+  },
+  {
+    id: "s2",
+    name: "Buffalo Wings (12)",
+    price: 139.99,
+    category: "Starters",
+    description: "Served with Durky Sauce and Roquefort Dressing.",
+    image: require("./Images/buffalo_wings.png"),
+  },
+  {
+    id: "s3",
+    name: "Spicy Chicken Livers",
+    price: 84.99,
+    category: "Starters",
+    description: "Served with a toasted Portuguese garlic roll.",
+    image: require("./Images/spicy_livers.png"),
+  },
+  {
+    id: "s4",
+    name: "Queen Prawns",
+    price: 97.99,
+    category: "Starters",
+    description:
+      "4 Queen prawns grilled in your choice of lemon OR garlic butter. Served on savoury rice with peri-peri sauce.",
+    image: require("./Images/queen_prawns.png"),
+  },
 
 const styles = StyleSheet.create({
   container: {
