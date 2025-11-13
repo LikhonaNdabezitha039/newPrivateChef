@@ -338,6 +338,26 @@ function AddItemScreen(){
         </Picker>
       </View>
 
+      {/*Price input — numeric values only*/}
+      <TextInput
+        placeholder="Item Price (e.g. 56.99)"
+        value={itemPrice}
+        onChangeText={handlePriceChange}
+        keyboardType="numeric"
+        style={styles.input}
+      />
+
+      <TextInput
+        placeholder="Item Description"
+        value={itemDescription}
+        onChangeText={setItemDescription}
+        style={styles.input}
+      />
+
+      <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
+        <Button title="Add Item" onPress={onAdd} color="#e63946" />
+      </View>
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
