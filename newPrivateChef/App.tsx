@@ -136,6 +136,31 @@ const initialMenu: StoreItem[] = [
     image: require("./Images/strawberry_cake.png"),
   },
 ];
+export default function App() {
+  //productCatalogue state holds both initial items and new items added by chef
+  const [productCatalogue, setProductCatalogue] = useState<StoreItem[]>(initialMenu);
+ 
+  const addNewItem = (item: Omit<StoreItem, "id" | "image">) => {
+    //Trim and validate fields
+    const name = item.name.trim();
+    const category = item.category;
+    const price = Number(item.price);
+    const description = item.description.trim();
+
+    if (!name || !category || Number.isNaN(price) || price <= 0) {
+      // The validation, user should provide a valid input
+      console.warn("Invalid item data; item not added.");
+      return;
+    }
+
+    const newItem: StoreItem = {
+      id: "u" + Date.now().toString(),
+      name,
+      price: Math.round(price * 100) / 100,
+      category,
+      description,
+      image: require("./Images/chef_logo.png"), //logo of the chef
+    };
 
 
 const styles = StyleSheet.create({
