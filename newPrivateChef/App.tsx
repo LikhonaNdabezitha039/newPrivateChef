@@ -287,6 +287,31 @@ function AddItemScreen(){
     setItemPrice(normalized);
   };
 
+  //Add action linked to Add button.
+  //Uses addNewItem from context with a validation.
+  const onAdd = () => {
+    if (!itemName.trim() || !itemCategory || !itemPrice.trim()) {
+      //simple visual feedback
+      alert("Please enter the name, category and price.");
+      return;
+    }
+
+    //call context method (it validates prices)
+    addNewItem({
+      name: itemName,
+      category: itemCategory,
+      price: Number(itemPrice),
+      description: itemDescription,
+    });
+
+    //clear fields
+    setItemName("");
+    setItemCategory("Starters");
+    setItemPrice("");
+    setItemDescription("");
+  };
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
