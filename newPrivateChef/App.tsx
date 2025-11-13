@@ -388,6 +388,28 @@ function AddItemScreen(){
   );
 }
 
+//FilterScreen, the user selects course from the dropdown menu
+//Filtered items are displayed only for the chosen course
+function FilterScreen(){
+  const ctx = useContext(MenuContext);
+  if (!ctx) throw new Error("MenuContext not found");
+  const { productCatalogue } = ctx;
+  const [selected, setSelected] = useState<StoreItem["category"]>("Starters");
+
+  const filtered = productCatalogue.filter((i) => i.category === selected);
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
+        <Text style={styles.appName}>Christofel</Text>
+      </View>
+
+      {/*The title of the screen*/}
+      <Text style={styles.title}>Filter by Courses</Text>
+
+      
+
 
 const styles = StyleSheet.create({
   container: {
