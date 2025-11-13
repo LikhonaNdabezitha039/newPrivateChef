@@ -260,7 +260,7 @@ function HomeScreen(){//The IIE, 2025
       <CourseBlock courseName="Desserts" />
 
       <StatusBar style="auto" />
-    </ScrollView>{/*The IIE, 2025*/}
+    </ScrollView>//The IIE, 2025
   );
 }
 
@@ -321,7 +321,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
       <TextInput
         placeholder="Item Name"
         value={itemName}
-        onChangeText={setItemName}{/*The IIE, 2025*/}
+        onChangeText={setItemName}//The IIE, 2025
         style={styles.input}
       />
 
@@ -390,7 +390,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
 
 //FilterScreen, the user selects course from the dropdown menu
 //Filtered items are displayed only for the chosen course
-function FilterScreen(){
+function FilterScreen(){{/*The IIE, 2025*/}
   const ctx = useContext(MenuContext);
   if (!ctx) throw new Error("MenuContext not found");
   const { productCatalogue } = ctx;
@@ -401,8 +401,8 @@ function FilterScreen(){
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
-        <Text style={styles.appName}>Christofel</Text>
+        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />{/*The IIE, 2025*/}
+        <Text style={styles.appName}>Christofel</Text>{/*The IIE, 2025*/}
       </View>
 
       {/*The title of the screen*/}
@@ -428,12 +428,12 @@ function FilterScreen(){
         </View>
       ))}
       <StatusBar style="auto" />
-    </ScrollView>
+    </ScrollView>//The IIE, 2025
   );
 }
 
 //Styles of the app (kept consistent across all screens)
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({//The IIE, 2025
   container: {
     flex: 1,
     backgroundColor: "#e8cdcdff",
@@ -449,7 +449,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginRight: 10,
   },
-  appName: {
+  appName: {//The IIE, 2025
     fontSize: 22,
     fontWeight: "bold",
     color: "#000000ff",
@@ -489,7 +489,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
     marginTop: 30,
-    textAlign: "center",
+    textAlign: "center",//The IIE, 2025
   },
   sectionHeader: {
     fontSize: 20,
@@ -513,7 +513,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     marginTop: 5,
   },
-  menuDescription: {
+  menuDescription: {//The IIE, 2025
     fontSize: 14,
     textAlign: "center",
     color: "#444",
@@ -526,7 +526,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   displayItem: {
-    backgroundColor: "#87CEEB",
+    backgroundColor: "#87CEEB",//The IIE, 2025
     padding: 20,
     borderRadius: 10,
     marginBottom: 10,
