@@ -498,4 +498,24 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 15,
   },
-  
+  menuItem: {
+    alignItems: "center",
+    marginVertical: 10,
+    paddingHorizontal: 10,
+  },
+  menuImage: {
+    width: 250,
+    height: 160,
+    borderRadius: 10,
+  },
+  menuItemTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    marginTop: 5,
+  },
+  menuDescription: {
+    fontSize: 14,
+    textAlign: "center",
+    color: "#444",
+    marginTop: 3,
+  },
