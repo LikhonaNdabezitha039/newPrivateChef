@@ -207,6 +207,7 @@ export default function App() {
     </MenuContext.Provider>
   );
 }
+
 //HomeScreen shows full menu grouped by course
 //Shows average price for each course after the last item of that course
 function HomeScreen(){
@@ -222,6 +223,46 @@ function HomeScreen(){
     //compute average price
     const avg =
       items.length > 0 ? items.reduce((sum, it) => sum + Number(it.price), 0) / items.length : 0;
+    
+    return (
+      <View>
+        <Text style={styles.sectionHeader}>{courseName}</Text>
+        {items.map((item) => (
+          <View key={item.id} style={styles.menuItem}>
+            <Image source={item.image} style={styles.menuImage} />
+            <Text style={styles.menuItemTitle}>
+              {item.name} - R{item.price.toFixed(2)}
+            </Text>
+            <Text style={styles.menuDescription}>{item.description}</Text>
+          </View>
+        ))}
+        {/* Display average at the bottom of each course */}
+        {items.length > 0 && (
+          <Text style={styles.courseAverage}>
+            Average price ({courseName}): R{avg.toFixed(2)}
+          </Text>
+        )}
+      </View>
+    );
+  };
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
+        <Text style={styles.appName}>Christofel</Text>
+      </View>
+
+      <Text style={styles.menuTitle}>Full Menu</Text>
+
+      <CourseBlock courseName="Starters" />
+      <CourseBlock courseName="Main Courses" />
+      <CourseBlock courseName="Desserts" />
+
+      <StatusBar style="auto" />
+    </ScrollView>
+  );
+}
 
 
 const styles = StyleSheet.create({
