@@ -432,12 +432,32 @@ function FilterScreen(){
   );
 }
 
-
+//Styles of the app (kept consistent across all screens)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#e8cdcdff",
   },
-});
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 40,
+    marginLeft: 15,
+  },
+  logoImage: {//The style of the image of the logo
+    width: 50,
+    height: 50,
+    marginRight: 10,
+  },
+  appName: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#000000ff",
+  },
+
+  title: {//The style of the titles of the app
+    fontSize: 18,
+    fontWeight: "600",
+    marginVertical: 10,
+    textAlign: "center",
+  },
