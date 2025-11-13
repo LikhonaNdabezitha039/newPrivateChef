@@ -207,6 +207,22 @@ export default function App() {
     </MenuContext.Provider>
   );
 }
+//HomeScreen shows full menu grouped by course
+//Shows average price for each course after the last item of that course
+function HomeScreen(){
+  const ctx = useContext(MenuContext);
+  if (!ctx) throw new Error("MenuContext not found");
+  const { productCatalogue } = ctx;
+
+  //Helper to render a course and its average
+  const CourseBlock: React.FC<{ courseName: StoreItem["category"] }> = ({ courseName }) => {
+    //Filter items by category in the same order they are stored
+    const items = productCatalogue.filter((i) => i.category === courseName);
+
+    //compute average price
+    const avg =
+      items.length > 0 ? items.reduce((sum, it) => sum + Number(it.price), 0) / items.length : 0;
+
 
 const styles = StyleSheet.create({
   container: {
