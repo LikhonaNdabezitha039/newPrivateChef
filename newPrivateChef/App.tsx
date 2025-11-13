@@ -1,7 +1,7 @@
 //The import of the important libraries on the app
 import React, { useMemo, useState, createContext, useContext } from "react";
 import { StyleSheet, Text, View, TextInput, Button, FlatList,
-         ScrollView, Image, Keyboard } from "react-native";
+         ScrollView, Image, Keyboard } from "react-native";//The IIE, 2025
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Picker } from "@react-native-picker/picker";
@@ -10,7 +10,7 @@ import { StatusBar } from "expo-status-bar";
 
 //Types of data structures
 //A single menu item stored in the catalogue
-type StoreItem = {
+type StoreItem = {//The IIE, 2025
   id: string;
   name: string;
   price: number; // numeric price (in Rands)
@@ -138,7 +138,7 @@ const initialMenu: StoreItem[] = [
 ];
 export default function App() {
   //productCatalogue state holds both initial items and new items added by chef
-  const [productCatalogue, setProductCatalogue] = useState<StoreItem[]>(initialMenu);
+  const [productCatalogue, setProductCatalogue] = useState<StoreItem[]>(initialMenu);//The IIE, 2025
  
   const addNewItem = (item: Omit<StoreItem, "id" | "image">) => {
     //Trim and validate fields
@@ -210,7 +210,7 @@ export default function App() {
 
 //HomeScreen shows full menu grouped by course
 //Shows average price for each course after the last item of that course
-function HomeScreen(){
+function HomeScreen(){//The IIE, 2025
   const ctx = useContext(MenuContext);
   if (!ctx) throw new Error("MenuContext not found");
   const { productCatalogue } = ctx;
@@ -249,18 +249,18 @@ function HomeScreen(){
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
-        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
+        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />{/*The IIE, 2025*/}
         <Text style={styles.appName}>Christofel</Text>
       </View>
 
-      <Text style={styles.menuTitle}>Full Menu</Text>
+      <Text style={styles.menuTitle}>Full Menu</Text>{/*The IIE, 2025*/}
 
       <CourseBlock courseName="Starters" />
       <CourseBlock courseName="Main Courses" />
       <CourseBlock courseName="Desserts" />
 
       <StatusBar style="auto" />
-    </ScrollView>
+    </ScrollView>{/*The IIE, 2025*/}
   );
 }
 
@@ -268,7 +268,7 @@ function HomeScreen(){
 //Price input allows numbers and a single dot (which is represent the a comma decimal separator)
 //Remove button deletes item from the menu items list
 //The total number of items in menu is shown on top of the current items list
-function AddItemScreen(){
+function AddItemScreen(){{/*The IIE, 2025*/}
   const ctx = useContext(MenuContext);
   if (!ctx) throw new Error("MenuContext not found");
   const { productCatalogue, addNewItem, removeItem } = ctx;
@@ -312,7 +312,7 @@ function AddItemScreen(){
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container}>{/*The IIE, 2025*/}
       <View style={styles.header}>
         <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
         <Text style={styles.appName}>Christofel</Text>
@@ -321,7 +321,7 @@ function AddItemScreen(){
       <TextInput
         placeholder="Item Name"
         value={itemName}
-        onChangeText={setItemName}
+        onChangeText={setItemName}{/*The IIE, 2025*/}
         style={styles.input}
       />
 
@@ -352,10 +352,10 @@ function AddItemScreen(){
         value={itemDescription}
         onChangeText={setItemDescription}
         style={styles.input}
-      />
+      />{/*The IIE, 2025*/}
 
       <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
-        <Button title="Add Item" onPress={onAdd} color="#e63946" />
+        <Button title="Add Item" onPress={onAdd} color="#e63946" />{/*The IIE, 2025*/}
       </View>
 
       {/*Total number of items in the menu (rubric requirement)*/}
@@ -377,7 +377,7 @@ function AddItemScreen(){
             </Text>
             <View style={{ marginTop: 10 }}>
               {/*Remove item from menu button*/}
-              <Button title="Remove" color="#e63946" onPress={() => removeItem(item.id)} />
+              <Button title="Remove" color="#e63946" onPress={() => removeItem(item.id)} />{/*The IIE, 2025*/}
             </View>
           </View>
         )}
