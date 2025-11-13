@@ -461,3 +461,41 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     textAlign: "center",
   },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc", 
+    borderRadius: 8,
+    padding: 10,
+    marginVertical: 5,
+    marginHorizontal: 20,
+    backgroundColor: "#fff",
+  },
+  pickerWrap: {//The picker style which is use in dropdown menu 
+    marginHorizontal: 20,
+    marginVertical: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    overflow: "hidden",
+    backgroundColor: "#fff",
+  },
+  picker: {
+    height: 46,
+    width: "100%",
+  },
+
+  menuTitle: {//The menu title style 
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333",
+    marginTop: 30,
+    textAlign: "center",
+  },
+  sectionHeader: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#e63946",
+    marginTop: 20,
+    marginLeft: 15,
+  },
+  
