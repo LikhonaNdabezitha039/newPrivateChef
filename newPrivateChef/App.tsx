@@ -162,6 +162,21 @@ export default function App() {
       image: require("./Images/chef_logo.png"), //logo of the chef
     };
 
+    //When the new item is added, it will appear at the top so chef sees recently added items
+    setProductCatalogue((prev) => [newItem, ...prev]);
+    Keyboard.dismiss();
+  };
+
+  //Remove item immediately on the list of the menu items
+  const removeItem = (id: string) => {
+    setProductCatalogue((prev) => prev.filter((it) => it.id !== id));
+  };
+
+  const menuContextValue: MenuContextType = useMemo(
+    () => ({ productCatalogue, addNewItem, removeItem }),
+    [productCatalogue]
+  );
+
 
 const styles = StyleSheet.create({
   container: {
