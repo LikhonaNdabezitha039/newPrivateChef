@@ -177,6 +177,36 @@ export default function App() {
     [productCatalogue]
   );
 
+  //Bottom navigator which displays on all the screens of the app 
+  const Tab = createBottomTabNavigator();
+
+  return (
+    <MenuContext.Provider value={menuContextValue}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            headerShown: false,
+            tabBarActiveTintColor: "#e63946",
+            tabBarStyle: { backgroundColor: "#f7e6e6" },
+            tabBarLabelStyle: { fontWeight: "600" },
+            //tab icons using icons
+            tabBarIcon: ({ color, size }) => {
+              let name = "home";
+              if (route.name === "Home") name = "home-outline";
+              else if (route.name === "Add Item") name = "add-circle-outline";
+              else if (route.name === "Filter") name = "filter-outline";
+              return <Ionicons name={name as any} size={size} color={color} />;
+            },
+          })}
+        >
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Add Item" component={AddItemScreen} />
+          <Tab.Screen name="Filter" component={FilterScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </MenuContext.Provider>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
