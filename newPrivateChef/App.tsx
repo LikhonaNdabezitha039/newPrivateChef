@@ -99,7 +99,44 @@ const initialMenu: StoreItem[] = [
     description: "Succulent pork spare ribs marinated in our great-tasting basting.",//And the discription of the meal explain what is the meal served with
     image: require("./Images/pork_ribs.png"),
   },
-  
+  //The Deserts which are prepared by the chef
+  {
+    id: "d1",
+    name: "Malva Pudding",
+    price: 65.99,
+    category: "Desserts",
+    description:
+      "Baked sponge pudding topped with caramel syrup, served warm with vanilla soft serve.",
+    image: require("./Images/malva.png"),
+  },
+  {
+    id: "d2",
+    name: "Peppermint Crisp Tart",
+    price: 59.99,
+    category: "Desserts",
+    description:
+      "Layers of cream and caramel sauce with crushed Peppermint Crisp pieces.",//The description of the desert
+    image: require("./Images/peppermint.png"),
+  },
+  {
+    id: "d3",
+    name: "Creme Brulee",
+    price: 59.99,
+    category: "Desserts",
+    description: "Vanilla custard topped with a thin layer of caramelised sugar.",
+    image: require("./Images/creme_brulee.png"),
+  },
+  {
+    id: "d4",
+    name: "Strawberry Cream Cake",
+    price: 80.50,//The price of the last item of the menu 
+    category: "Desserts",
+    description:
+      "Layers of soft sponge, rich cream, and fresh strawberries finished with a glaze.",
+    image: require("./Images/strawberry_cake.png"),
+  },
+];
+
 
 const styles = StyleSheet.create({
   container: {
