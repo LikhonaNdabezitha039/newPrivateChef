@@ -19,6 +19,17 @@ type StoreItem = {
   image: any; 
 };
 
+//Context payload to share menu between screens.
+type MenuContextType = {
+  productCatalogue: StoreItem[];
+  addNewItem: (item: Omit<StoreItem, "id" | "image">) => void;
+  removeItem: (id: string) => void;
+};
+
+//Menu context
+const MenuContext = createContext<MenuContextType | undefined>(undefined);
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
