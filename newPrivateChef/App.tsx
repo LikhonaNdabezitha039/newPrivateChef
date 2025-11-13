@@ -311,6 +311,32 @@ function AddItemScreen(){
     setItemDescription("");
   };
 
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.header}>
+        <Image source={require("./Images/chef_logo.png")} style={styles.logoImage} />
+        <Text style={styles.appName}>Christofel</Text>
+      </View>
+      <Text style={styles.title}>Add Menu Item</Text>
+      <TextInput
+        placeholder="Item Name"
+        value={itemName}
+        onChangeText={setItemName}
+        style={styles.input}
+      />
+
+      {/*Category dropdown menu*/}
+      <View style={styles.pickerWrap}>
+        <Picker
+          selectedValue={itemCategory}
+          onValueChange={(val) => setItemCategory(val as StoreItem["category"])}
+          style={styles.picker}
+        >
+          <Picker.Item label="Starters" value="Starters" />
+          <Picker.Item label="Main Courses" value="Main Courses" />
+          <Picker.Item label="Desserts" value="Desserts" />
+        </Picker>
+      </View>
 
 const styles = StyleSheet.create({
   container: {
