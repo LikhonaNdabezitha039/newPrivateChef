@@ -408,7 +408,29 @@ function FilterScreen(){
       {/*The title of the screen*/}
       <Text style={styles.title}>Filter by Courses</Text>
 
-      
+      <View style={styles.pickerWrap}>{/*The dropdown menu*/}
+        <Picker selectedValue={selected} onValueChange={(v) => setSelected(v as any)} style={styles.picker}>
+          <Picker.Item label="Starters" value="Starters" />
+          <Picker.Item label="Main Courses" value="Main Courses" />
+          <Picker.Item label="Desserts" value="Desserts" />
+        </Picker>
+      </View>
+
+      <Text style={[styles.sectionHeader, { marginLeft: 15 }]}>{selected}</Text>
+
+      {filtered.map((item) => (
+        <View key={item.id} style={styles.menuItem}>
+          <Image source={item.image} style={styles.menuImage} />
+          <Text style={styles.menuItemTitle}>
+            {item.name} - R{item.price.toFixed(2)}
+          </Text>
+          <Text style={styles.menuDescription}>{item.description}</Text>
+        </View>
+      ))}
+      <StatusBar style="auto" />
+    </ScrollView>
+  );
+}
 
 
 const styles = StyleSheet.create({
