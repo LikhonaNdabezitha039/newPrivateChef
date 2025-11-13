@@ -20,14 +20,14 @@ type StoreItem = {//The IIE, 2025
 };
 
 //Context payload to share menu between screens.
-type MenuContextType = {
+type MenuContextType = {//React Native, 2025
   productCatalogue: StoreItem[];
   addNewItem: (item: Omit<StoreItem, "id" | "image">) => void;
   removeItem: (id: string) => void;
 };
 
 //Menu context
-const MenuContext = createContext<MenuContextType | undefined>(undefined);
+const MenuContext = createContext<MenuContextType | undefined>(undefined);//React Native, 2025
 
 //Initial menu data (converted to typed objects) Prices are numeric so averages calculate correctly.
 const initialMenu: StoreItem[] = [
@@ -140,7 +140,7 @@ export default function App() {
   //productCatalogue state holds both initial items and new items added by chef
   const [productCatalogue, setProductCatalogue] = useState<StoreItem[]>(initialMenu);//The IIE, 2025
  
-  const addNewItem = (item: Omit<StoreItem, "id" | "image">) => {
+  const addNewItem = (item: Omit<StoreItem, "id" | "image">) => {//React Native, 2025
     //Trim and validate fields
     const name = item.name.trim();
     const category = item.category;
@@ -149,11 +149,11 @@ export default function App() {
 
     if (!name || !category || Number.isNaN(price) || price <= 0) {
       // The validation, user should provide a valid input
-      console.warn("Invalid item data; item not added.");
+      console.warn("Invalid item data; item not added.");//React Native, 2025
       return;
     }
 
-    const newItem: StoreItem = {
+    const newItem: StoreItem = {//React Native, 2025
       id: "u" + Date.now().toString(),
       name,
       price: Math.round(price * 100) / 100,
@@ -163,7 +163,7 @@ export default function App() {
     };
 
     //When the new item is added, it will appear at the top so chef sees recently added items
-    setProductCatalogue((prev) => [newItem, ...prev]);
+    setProductCatalogue((prev) => [newItem, ...prev]);//React Native, 2025
     Keyboard.dismiss();
   };
 
@@ -174,7 +174,7 @@ export default function App() {
 
   const menuContextValue: MenuContextType = useMemo(
     () => ({ productCatalogue, addNewItem, removeItem }),
-    [productCatalogue]
+    [productCatalogue]//React Native, 2025
   );
 
   //Bottom navigator which displays on all the screens of the app 
@@ -203,7 +203,7 @@ export default function App() {
           <Tab.Screen name="Add Item" component={AddItemScreen} />
           <Tab.Screen name="Filter" component={FilterScreen} />
         </Tab.Navigator>
-      </NavigationContainer>
+      </NavigationContainer>{/*The IIE, 2025*/}
     </MenuContext.Provider>
   );
 }
@@ -216,13 +216,13 @@ function HomeScreen(){//The IIE, 2025
   const { productCatalogue } = ctx;
 
   //Helper to render a course and its average
-  const CourseBlock: React.FC<{ courseName: StoreItem["category"] }> = ({ courseName }) => {
+  const CourseBlock: React.FC<{ courseName: StoreItem["category"] }> = ({ courseName }) => {//React Native, 2025
     //Filter items by category in the same order they are stored
     const items = productCatalogue.filter((i) => i.category === courseName);
 
     //compute average price
     const avg =
-      items.length > 0 ? items.reduce((sum, it) => sum + Number(it.price), 0) / items.length : 0;
+      items.length > 0 ? items.reduce((sum, it) => sum + Number(it.price), 0) / items.length : 0;//The IIE, 2025
     
     return (
       <View>
@@ -233,12 +233,12 @@ function HomeScreen(){//The IIE, 2025
             <Text style={styles.menuItemTitle}>
               {item.name} - R{item.price.toFixed(2)}
             </Text>
-            <Text style={styles.menuDescription}>{item.description}</Text>
+            <Text style={styles.menuDescription}>{item.description}</Text>{/*The IIE, 2025*/}
           </View>
         ))}
         {/* Display average at the bottom of each course */}
         {items.length > 0 && (
-          <Text style={styles.courseAverage}>
+          <Text style={styles.courseAverage}>{/*React Native, 2025*/}
             Average price ({courseName}): R{avg.toFixed(2)}
           </Text>
         )}
@@ -274,7 +274,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
   const { productCatalogue, addNewItem, removeItem } = ctx;
 
   //Local form state
-  const [itemName, setItemName] = useState<string>("");
+  const [itemName, setItemName] = useState<string>("");//The IIE, 2025
   const [itemCategory, setItemCategory] = useState<StoreItem["category"]>("Starters");
   const [itemPrice, setItemPrice] = useState<string>(""); //keep as string for typing and numeric sanitization
   const [itemDescription, setItemDescription] = useState<string>("");
@@ -293,7 +293,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
     if (!itemName.trim() || !itemCategory || !itemPrice.trim()) {
       //simple visual feedback
       alert("Please enter the name, category and price.");
-      return;
+      return;//React Native, 2025
     }
 
     //call context method (it validates prices)
@@ -335,7 +335,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
           <Picker.Item label="Starters" value="Starters" />
           <Picker.Item label="Main Courses" value="Main Courses" />
           <Picker.Item label="Desserts" value="Desserts" />
-        </Picker>
+        </Picker>{/*Ract Native, 2025*/}
       </View>
 
       {/*Price input — numeric values only*/}
@@ -345,7 +345,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
         onChangeText={handlePriceChange}
         keyboardType="numeric"
         style={styles.input}
-      />
+      />{/*The IIE, 2025*/}
 
       <TextInput
         placeholder="Item Description"
@@ -363,7 +363,7 @@ function AddItemScreen(){{/*The IIE, 2025*/}
 
       <Text style={[styles.menuTitle, { marginTop: 10 }]}>Current Menu Items</Text>
 
-      {/*List of items with a Remove button*/}
+      {/*List of items with a Remove button*/}{/*React Native, 2025*/}
       <FlatList
         data={productCatalogue}
         keyExtractor={(it) => it.id}
@@ -414,7 +414,7 @@ function FilterScreen(){{/*The IIE, 2025*/}
           <Picker.Item label="Main Courses" value="Main Courses" />
           <Picker.Item label="Desserts" value="Desserts" />
         </Picker>
-      </View>
+      </View>{/*React Native, 2025*/}
 
       <Text style={[styles.sectionHeader, { marginLeft: 15 }]}>{selected}</Text>
 
@@ -461,7 +461,7 @@ const styles = StyleSheet.create({//The IIE, 2025
     marginVertical: 10,
     textAlign: "center",
   },
-  input: {
+  input: {//The IIE,2025
     borderWidth: 1,
     borderColor: "#ccc", 
     borderRadius: 8,
@@ -479,7 +479,7 @@ const styles = StyleSheet.create({//The IIE, 2025
     overflow: "hidden",
     backgroundColor: "#fff",
   },
-  picker: {
+  picker: {//React Native, 2025
     height: 46,
     width: "100%",
   },
@@ -503,7 +503,7 @@ const styles = StyleSheet.create({//The IIE, 2025
     marginVertical: 10,
     paddingHorizontal: 10,
   },
-  menuImage: {
+  menuImage: {//The IIE, 2025
     width: 250,
     height: 160,
     borderRadius: 10,
@@ -538,7 +538,7 @@ const styles = StyleSheet.create({//The IIE, 2025
   itemList: {
     marginTop: 10,
   },
-  courseAverage: {
+  courseAverage: {//The IIE, 2025
     fontSize: 15,
     fontWeight: "600",
     color: "#000",
