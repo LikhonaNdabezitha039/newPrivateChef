@@ -34,7 +34,7 @@ const initialMenu: StoreItem[] = [
   // Starters
   {
     id: "s1",
-    name: "Cheesy Chicken Quesadilla",
+    name: "Cheesy Chicken Quesadilla",//The first item on the menu of the chef
     price: 95.99,
     category: "Starters",
     description:
@@ -54,7 +54,7 @@ const initialMenu: StoreItem[] = [
     name: "Spicy Chicken Livers",
     price: 84.99,
     category: "Starters",
-    description: "Served with a toasted Portuguese garlic roll.",
+    description: "Served with a toasted Portuguese garlic roll.",//The item description
     image: require("./Images/spicy_livers.png"),
   },
   {
@@ -66,6 +66,40 @@ const initialMenu: StoreItem[] = [
       "4 Queen prawns grilled in your choice of lemon OR garlic butter. Served on savoury rice with peri-peri sauce.",
     image: require("./Images/queen_prawns.png"),
   },
+  //Main Courses of what the chef has prepared on the menu
+  {
+    id: "m1",
+    name: "Ribs & Quarter Chicken",
+    price: 349.99,
+    category: "Main Courses",
+    description: "Marinated pork ribs with a quarter chicken.",
+    image: require("./Images/ribs.png"),
+  },
+  {
+    id: "m2",
+    name: "Rump & Buffalo Wings",
+    price: 235.99, //the price of the meal
+    category: "Main Courses",
+    description: "200g Rump steak and buffalo wings.",
+    image: require("./Images/rump_wings.png"),
+  },
+  {
+    id: "m3",
+    name: "Cheddamelt Steak 300g",//Name of the meal 
+    price: 279.99,
+    category: "Main Courses",
+    description: "Marinated pork ribs with a quarter chicken.",
+    image: require("./Images/cheddamelt.png"),//This is the image showing the meal
+  },
+  {
+    id: "m4",
+    name: "Pork Spare Ribs 800g",
+    price: 330.99,
+    category: "Main Courses",//The category of the meal 
+    description: "Succulent pork spare ribs marinated in our great-tasting basting.",//And the discription of the meal explain what is the meal served with
+    image: require("./Images/pork_ribs.png"),
+  },
+  
 
 const styles = StyleSheet.create({
   container: {
