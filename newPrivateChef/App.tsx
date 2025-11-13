@@ -264,6 +264,28 @@ function HomeScreen(){
   );
 }
 
+//Add menu Item Screen Chef can add menu items to menu
+//Price input allows numbers and a single dot (which is represent the a comma decimal separator)
+//Remove button deletes item from the menu items list
+//The total number of items in menu is shown on top of the current items list
+function AddItemScreen(){
+  const ctx = useContext(MenuContext);
+  if (!ctx) throw new Error("MenuContext not found");
+  const { productCatalogue, addNewItem, removeItem } = ctx;
+
+  //Local form state
+  const [itemName, setItemName] = useState<string>("");
+  const [itemCategory, setItemCategory] = useState<StoreItem["category"]>("Starters");
+  const [itemPrice, setItemPrice] = useState<string>(""); //keep as string for typing and numeric sanitization
+  const [itemDescription, setItemDescription] = useState<string>("");
+
+  //The price input handler to allow only numbers and a single dot
+  const handlePriceChange = (text: string) => {
+    const sanitized = text.replace(/[^0-9.]/g, "");
+    const parts = sanitized.split(".");
+    const normalized = parts.length <= 2 ? sanitized : parts[0] + "." + parts.slice(1).join("");
+    setItemPrice(normalized);
+  };
 
 const styles = StyleSheet.create({
   container: {
